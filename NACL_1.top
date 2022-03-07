@@ -1,0 +1,53 @@
+;
+;   File NACL_1.top  was generated
+;   By user: ajaymuralidharan (501)
+;   On host: ajays-MacBook-Pro.local
+;   At date: Mon. March  1 13:44:30 2022
+;
+;   This is a standalone topology file
+;
+;   Created by:
+;   ParmEd:       , VERSION 3.2.0
+;   Executable:   
+;   Library dir:  /usr/local/Cellar/gromacs/2020.3/share/gromacs/top
+;   Command line:
+;     
+;
+
+[ defaults ]
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+1               3               yes             0.5          0.5         
+
+[ atomtypes ]
+; name    bond_type at.num    mass    charge ptype  sigma      epsilon
+opls_407 Na+            11  22.989770  1.00000000  A       0.333045       0.011598
+opls_401 Cl-            17  35.453000  -1.00000000  A       0.441724       0.492833
+
+
+[ moleculetype ]
+; Name            nrexcl
+NA          3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr    charge       mass  typeB    chargeB      massB
+; residue    1 NA rtp NA q 1.0
+    1   opls_407      1     NA     NA      1 1.00000000  22.989800   ; qtot 1.000000
+
+
+[ moleculetype ]
+; Name            nrexcl
+CL          3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr    charge       mass  typeB    chargeB      massB
+; residue    1 CL rtp CL q -1.0
+    1   opls_401      1     CL     CL      1 -1.00000000  35.453000   ; qtot -1.000000
+
+[ system ]
+; Name
+Generic title
+
+[ molecules ]
+; Compound       #mols
+NA                   1
+CL                   1
