@@ -6,7 +6,7 @@ gmx mdrun -deffnm parmed -rerun NACL_1.gro
 echo 1 2 3 | gmx energy -f parmed.edr -o parmed.xvg 
 
 
-Energy                      Average   Err.Est.       RMSD  Tot-Drift
+Energy 			Average   Err.Est.       RMSD  Tot-Drift
 
 -------------------------------------------------------------------------------
 
@@ -16,6 +16,8 @@ Coulomb (SR)               -163.689         --          0          0  (kJ/mol)
 
 Potential                  -163.691         --          0          0  (kJ/mol)
 
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 python spe.py 
 
