@@ -1,7 +1,10 @@
 # SinglePointEnergy
 gmx grompp -f sp.mdp -c NACL_1.gro -p NACL_1.top -o parmed.tpr
+
 gmx mdrun -deffnm parmed -rerun NACL_1.gro
+
 echo 1 2 3 | gmx energy -f parmed.edr -o parmed.xvg 
+
 
 Energy                      Average   Err.Est.       RMSD  Tot-Drift
 -------------------------------------------------------------------------------
