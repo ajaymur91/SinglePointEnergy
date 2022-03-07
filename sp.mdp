@@ -1,0 +1,31 @@
+; to perform single point energy calculation (for instance to calculate binding energy in dimer configurations, no pbc or cutoffs)
+; gmx grompp -f sp.mdp -c {configuration}.gro -p topology.top -o sp.tpr
+; gmx mdrun -s sp.tpr -rerun {configuration}.gro
+; the configuration used to create sp.tpr does not matter
+
+integrator               = md
+nsteps                   = 0   ;single point calc
+cutoff-scheme            = group
+rlist                    = 0   ;vaccum s.p. calc
+rcoulomb                 = 0   ;vaccum s.p. calc
+rvdw                     = 0   ;vaccun s.p. calc
+pbc                      = no
+nstenergy                = 1
+nstxout                  = 1
+nstlist                  = 0
+ns-type                  = simple
+continuation             = yes ; does the same thing as unconstrained_start
+;unconstrained_start     = yes ; depricated
+
+
+;       Vacuum simulations are a special case, in which neighbor lists and cutoffs are basically thrown out. 
+;       All interactions are considered (rlist = rcoulomb = rvdw = 0) and the neighbor list is fixed (nstlist = 0). 
+
+;NOTE 1 ;Zero-step energy minimization will alter the coordinates before
+;       ;calculating the energy. If you just want the energy of a single point,
+;       ;try zero-step MD (with unconstrained_start = yes). To do multiple
+;       ;single-point energy evaluations of different configurations of the same
+;       ;topology, use mdrun -rerun.
+
+;NOTE 2 ;For a correct single-point energy evaluation with nsteps = 0, use
+;       ;continuation = yes to avoid constraining the input coordinates
