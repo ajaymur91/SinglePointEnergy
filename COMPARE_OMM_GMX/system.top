@@ -1,0 +1,95 @@
+;
+;   File system.top  was generated
+;   By user: amuralidhar4 (1017)
+;   On host: starling.chem.wisc.edu
+;   At date: Mon. April  1 18:34:26 2022
+;
+;   This is a standalone topology file
+;
+;   Created by:
+;   ParmEd:       test.py, VERSION 3.4.3
+;   Executable:   test.py
+;   Library dir:  /home/amuralidhar4/miniconda3/envs/omm-plm-mda-cu10/share/gromacs/top
+;   Command line:
+;     test.py
+;
+
+[ defaults ]
+; nbfunc        comb-rule       gen-pairs       fudgeLJ fudgeQQ
+1               2               yes             1            1           
+
+[ atomtypes ]
+; name    at.num    mass    charge ptype  sigma      epsilon
+Na1           11  22.989769  0.00000000  A         0.2584         0.4184
+Cl1           17  35.453200  0.00000000  A         0.4036         0.4184
+O1             8  15.999430  0.00000000  A     0.31657195      0.6497752
+H1             1   1.007947  0.00000000  A          0.065        0.16628
+
+
+[ moleculetype ]
+; Name            nrexcl
+Na+          3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr    charge       mass  typeB    chargeB      massB
+; residue    1 Na+ rtp Na+ q 1.0
+    1        Na1      1    Na+     Na      1 1.00000000  22.989769   ; qtot 1.000000
+
+
+[ moleculetype ]
+; Name            nrexcl
+Cl-          3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr    charge       mass  typeB    chargeB      massB
+; residue    1 Cl- rtp Cl- q -1.0
+    1        Cl1      1    Cl-     Cl      1 -1.00000000  35.453200   ; qtot -1.000000
+
+
+[ moleculetype ]
+; Name            nrexcl
+HOH          3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr    charge       mass  typeB    chargeB      massB
+; residue    1 HOH rtp HOH q 0.0
+    1         O1      1    HOH      O      1 -0.84760000  15.999430   ; qtot -0.847600
+    2         H1      1    HOH     H1      2 0.42380000   1.007947   ; qtot -0.423800
+    3         H1      1    HOH     H2      3 0.42380000   1.007947   ; qtot 0.000000
+
+#ifdef FLEXIBLE
+
+[ bonds ]
+;    ai     aj funct         c0         c1         c2         c3
+      1      2     1   0.10000 462750.400000
+      1      3     1   0.10000 462750.400000
+
+[ angles ]
+;    ai     aj     ak funct         c0         c1         c2         c3
+      2      1      3     1   109.4700000 836.800000
+
+
+#else
+
+[ settles ]
+; i     funct   doh     dhh
+1     1   0.10000000   0.16329809
+
+#endif
+
+[ exclusions ]
+1  2  3
+2  1  3
+3  1  2
+
+[ system ]
+; Name
+Generic title
+
+[ molecules ]
+; Compound       #mols
+Na+                  1
+Cl-                  1
+Na+                  1
+Cl-                  1
+HOH                  1

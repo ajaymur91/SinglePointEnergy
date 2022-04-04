@@ -1,0 +1,18 @@
+<ForceField>
+ <AtomTypes>
+  <Type name="1" class="ION" element="Na" mass="22.989769282"/>
+  <Type name="2" class="ION" element="Cl" mass="35.4532"/>
+ </AtomTypes>
+ <Residues>
+  <Residue name="Na+">
+   <Atom name="Na" type="1"/>
+  </Residue>
+  <Residue name="Cl-">
+   <Atom name="Cl" type="2"/>
+  </Residue>
+ </Residues>
+ <NonbondedForce coulomb14scale="0.833333" lj14scale="0.5">
+  <Atom type="1" charge="1.000" sigma="0.2584" epsilon="0.4184"/>
+  <Atom type="2" charge="-1.000" sigma="0.4036" epsilon="0.4184"/>
+ </NonbondedForce>
+</ForceField>   

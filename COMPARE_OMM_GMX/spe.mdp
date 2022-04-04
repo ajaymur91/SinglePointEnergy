@@ -1,0 +1,14 @@
+define                   = -DFLEXIBLE
+integrator               = md
+nsteps                   = 0   ;single point calc
+cutoff-scheme            = group
+rlist                    = 0   ;vaccum s.p. calc
+rcoulomb                 = 0   ;vaccum s.p. calc
+rvdw                     = 0   ;vaccun s.p. calc
+pbc                      = no
+nstenergy                = 1
+nstxout                  = 1
+nstlist                  = 0
+ns-type                  = simple
+continuation             = yes ; does the same thing as unconstrained_start
+;unconstrained_start     = yes ; depricated
