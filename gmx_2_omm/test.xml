@@ -1,0 +1,16 @@
+<ForceField>
+  <Info>
+    <DateGenerated>2022-04-06</DateGenerated>
+  </Info>
+  <AtomTypes>
+    <Type element="Na" name="Li1" class="Li1" mass="22.989769"/>
+    <Type element="Cl" name="F1" class="F1" mass="35.4532"/>
+    <Type element="Ar" name="opls_097" class="opls_097" mass="39.948"/>
+  </AtomTypes>
+  <NonbondedForce coulomb14scale="1.0" lj14scale="1.0">
+    <UseAttributeFromResidue name="charge"/>
+    <Atom class="Li1" sigma="0.2584" epsilon="0.4184"/>
+    <Atom class="F1" sigma="0.40360000000000007" epsilon="0.4184"/>
+    <Atom class="opls_097" sigma="0.3401" epsilon="0.978638"/>
+  </NonbondedForce>
+</ForceField>
